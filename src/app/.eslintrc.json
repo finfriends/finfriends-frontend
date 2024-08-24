@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-native/all",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "react-native",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": ["error"]
+  }
+}
