@@ -6,13 +6,8 @@
  */
 
 import React from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
-} from 'react-native';
-
+import {StatusBar, useColorScheme} from 'react-native';
+import styled from '@emotion/native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {WebViewCont} from './components/WebViewCont.tsx';
 
@@ -24,22 +19,23 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <S.WebViewContainer>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <WebViewCont />
-    </SafeAreaView>
+    </S.WebViewContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    height: '100%',
-    width: '100%',
-  },
-});
+// eslint-disable-next-line @typescript-eslint/no-namespace
+namespace S {
+  export const WebViewContainer = styled.SafeAreaView`
+    flex: 1;
+    height: 100%;
+    width: 100%;
+  `;
+}
 
 export default App;

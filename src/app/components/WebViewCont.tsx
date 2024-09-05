@@ -1,13 +1,25 @@
 import {useRef} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {WebView} from 'react-native-webview';
+import styled from '@emotion/native';
+import {handleDataFromWeb} from '../libs/handleDataFromWeb.ts';
+import {WebViewEventType} from '../types/message.ts';
 
 export const WebViewCont = () => {
-  const webviewRef = useRef<WebView | null>(null);
   // adb reverse tcp:3000 tcp:3000
   const webUrl: string = 'http://localhost:3000';
+  const webviewRef = useRef<WebView | null>(null);
+  const fetchDataFromWeb = (e: WebViewEventType) => {
+    const data = handleDataFromWeb(e.nativeEvent.data);
+
+    if (webviewRef.current && data) {
+      console.log(data);
+      webviewRef.current.postMessage(data);
+    }
+  };
+
   return (
-    <View style={styles.container}>
+    <S.WebViewContainer>
       <WebView
         ref={webviewRef}
         source={{uri: webUrl}}
@@ -18,15 +30,19 @@ export const WebViewCont = () => {
         originWhitelist={['https://*', 'http://*']}
         overScrollMode={'never'}
         style={styles.webview}
+        onMessage={fetchDataFromWeb}
       />
-    </View>
+    </S.WebViewContainer>
   );
 };
 
+// eslint-disable-next-line @typescript-eslint/no-namespace
+namespace S {
+  export const WebViewContainer = styled.View`
+    flex: 1;
+  `;
+}
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   webview: {
     flex: 1,
     height: '100%',
