@@ -3,9 +3,9 @@ import styled from '@emotion/styled';
 import { TabTheme } from '@/constants/Tab';
 import { Color } from '@/styles/color';
 
-export type TabProps<T = string> = { key: T; label: string };
+type TabProps<T = string> = { key: T; label: string };
 
-export interface TabsProps<T extends TabProps> {
+interface TabsProps<T extends TabProps> {
   tabTheme: TabTheme;
   tabList: T[];
   activeTab: T;
