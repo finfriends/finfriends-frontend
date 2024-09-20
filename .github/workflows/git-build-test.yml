@@ -1,0 +1,30 @@
+name: PR Build Test
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - './src/web/**'
+      - './src/common/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Lint test
+        run: yarn lint
+
+      - name: Build Test
+        working-directory: ./src/web
+        run: yarn build
+
+      - name: Run tests
+        working-directory: ./src/web
+        run: yarn test
