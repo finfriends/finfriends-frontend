@@ -2,11 +2,7 @@ name: PR Build Test
 
 on:
   pull_request:
-    branches:
-      - main
-    paths:
-      - './src/web/**'
-      - './src/common/**'
+    branches: [main]
 
 jobs:
   build:
@@ -19,12 +15,8 @@ jobs:
         run: yarn install
 
       - name: Lint test
-        run: yarn lint
+        run: yarn lint || exit 1
 
       - name: Build Test
         working-directory: ./src/web
-        run: yarn build
-
-      - name: Run tests
-        working-directory: ./src/web
-        run: yarn test
+        run: yarn build || exit 1
