@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Providers from '@/app/providers';
 import { pretendard } from '@/styles/fonts';
+import '@/styles/reset.css';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
