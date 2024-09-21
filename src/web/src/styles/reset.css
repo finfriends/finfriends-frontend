@@ -46,3 +46,12 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+img{vertical-align: top; width: 100%;}
+img:focus {outline: none;}
+button{border: none; outline: none; background: none; padding: 0; margin: 0;}
+button:focus{outline:none;}
+input:focus{outline:none;}
+div:focus{outline:none;}
+select:focus{outline:none;}
+em{font-style: normal;}
+a{text-decoration: none; color: inherit; outline: none;}

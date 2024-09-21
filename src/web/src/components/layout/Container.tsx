@@ -39,7 +39,6 @@ namespace S {
     padding: 0 24px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     background-image: ${({ training }) =>
       training ? `url(${MainBg.src})` : 'none'};
