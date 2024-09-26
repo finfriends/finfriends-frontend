@@ -30,7 +30,7 @@ export const postNativeMessage = (
         document.removeEventListener('message', listener as EventListener);
         // ios
         window.removeEventListener('message', listener);
-        reject('TIMEOUT');
+        reject(new Error('TIMEOUT'));
       }, TIMEOUT);
 
       if (isAwaitingResponse) {
@@ -40,10 +40,9 @@ export const postNativeMessage = (
         window.addEventListener('message', listener);
       } else {
         clearTimeout(timer);
-        return;
       }
     } else {
-      return;
+      reject(new Error('ReactNativeWebView is not available'));
     }
   });
 };

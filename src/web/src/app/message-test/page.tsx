@@ -42,8 +42,9 @@ export default function MessageTestPage() {
   }, []);
   return (
     <div>
-      <button onClick={handlePostMessage}>정보 보기</button>
-      <div></div>
+      <button type="button" onClick={handlePostMessage}>
+        정보 보기
+      </button>
 
       {isOpen && (
         <>

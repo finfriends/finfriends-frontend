@@ -8,20 +8,11 @@ import { AuthProvider } from '@/constants/auth';
 export default function Home() {
   const params = useSearchParams();
   const code = params.get('code');
-  const { mutate } = useCreateUserMutation({
-    onSuccess: () => {
-      console.log(`success`);
-    },
-    onError: (error) => {
-      console.error('Error creating user:', error);
-    },
-  });
+  const { mutate } = useCreateUserMutation({});
 
   useEffect(() => {
     if (code) {
       mutate({ code: String(code), authProvider: AuthProvider.KAKAO });
     }
   }, [code, mutate]);
-
-  return;
 }

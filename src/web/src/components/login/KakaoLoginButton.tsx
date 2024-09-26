@@ -10,10 +10,10 @@ export const KakaoLoginButton = () => {
   return (
     <S.LoginContainer>
       <a href={requestUrl}>
-        <S.KakaoLoginButton>
+        <S.LoginButton>
           <KakaoLoginIcon />
           카카오톡으로 시작하기
-        </S.KakaoLoginButton>
+        </S.LoginButton>
       </a>
       <S.PolicyText>
         가입을 진행할 경우, 서비스 약관 및 개인정보 처리방침에 동의한 것으로
@@ -30,7 +30,7 @@ namespace S {
     background-color: ${Color.MainBlue3};
   `;
 
-  export const KakaoLoginButton = styled.div`
+  export const LoginButton = styled.div`
     border-radius: 12px;
     background-color: #ffde00;
     display: flex;

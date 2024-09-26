@@ -18,12 +18,11 @@ const ToggleButton = ({
         <ActiveToggleIcon />
       </div>
     );
-  else
-    return (
-      <div onClick={handleToggleActive}>
-        <InactiveToggleIcon />
-      </div>
-    );
+  return (
+    <div onClick={handleToggleActive}>
+      <InactiveToggleIcon />
+    </div>
+  );
 };
 
 export default ToggleButton;

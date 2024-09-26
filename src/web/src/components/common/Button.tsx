@@ -18,17 +18,17 @@ const Button = ({
   onClick?: () => void;
 }) => {
   return (
-    <S.Button theme={theme} disabled={isDisabled} onClick={onClick}>
-      {icon}
+    <S.StyledButton theme={theme} disabled={isDisabled} onClick={onClick}>
+      {icon && icon}
       {label}
-    </S.Button>
+    </S.StyledButton>
   );
 };
 
 export default Button;
 
 namespace S {
-  export const Button = styled.button`
+  export const StyledButton = styled.button`
     width: 100%;
     padding: 12px 24px;
     border-radius: 8px;

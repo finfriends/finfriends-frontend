@@ -14,8 +14,6 @@ const RadioBox = ({
   onClick: () => void;
   isChecked: boolean;
   label: string;
-  size?: 20 | 24;
-  textColor?: string;
   isDisabled?: boolean;
 }) => {
   return (
