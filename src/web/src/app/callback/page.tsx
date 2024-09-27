@@ -1,21 +1,14 @@
 'use client';
 
+import { Suspense, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useCreateUserMutation } from '@/queries/useAuthQueries';
-import { useEffect } from 'react';
 import { AuthProvider } from '@/constants/auth';
 
-export default function Home() {
+function CallbackComponent() {
   const params = useSearchParams();
   const code = params.get('code');
-  const { mutate } = useCreateUserMutation({
-    onSuccess: () => {
-      console.log(`success`);
-    },
-    onError: (error) => {
-      console.error('Error creating user:', error);
-    },
-  });
+  const { mutate } = useCreateUserMutation();
 
   useEffect(() => {
     if (code) {
@@ -23,5 +16,13 @@ export default function Home() {
     }
   }, [code, mutate]);
 
-  return;
+  return null;
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div>로딩 중...</div>}>
+      <CallbackComponent />
+    </Suspense>
+  );
 }
