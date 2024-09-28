@@ -26,8 +26,9 @@ export const KakaoLoginButton = () => {
 namespace S {
   export const LoginContainer = styled.div`
     width: 100%;
-    height: 100%;
-    background-color: ${Color.MainBlue3};
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   `;
 
   export const LoginButton = styled.div`
