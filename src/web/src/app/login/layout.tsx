@@ -3,7 +3,7 @@
 import React, { ReactNode } from 'react';
 import { ImageBackgroundLayout } from '@/components/layout/ImageBackgroundLayout';
 
-export default function TrainingLayout({
+export default function LoginLayout({
   children,
 }: Readonly<{
   children: ReactNode;
