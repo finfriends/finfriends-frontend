@@ -19,9 +19,6 @@ const AuthGuard = ({ children }: { children: React.ReactNode }) => {
             break;
         }
       }
-    } else {
-      // v.1.0에서는 메인 페이지가 training이므로 오류가 나지 않은 경우 트레이닝으로 이동
-      router.push('/training');
     }
   }, [error, isLoading, router]);
 
