@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios';
-import { CreateUserRequestType } from '@/types/authApi';
+import { refresh } from '@/api/authApi';
 
 export const axiosInstance: AxiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -56,22 +56,3 @@ axiosInstance.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
-const authInstance: AxiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
-  timeout: 10000,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
-
-export const refresh = async (): Promise<{ accessToken: string }> => {
-  const response = await authInstance.post('/auth/token/refresh');
-  return response.data;
-};
-
-export const Login = async (params: CreateUserRequestType) => {
-  const response = await authInstance.post('/auth/oauth/token', params);
-  setAccessToken(response.data.accessToken);
-  return response.data;
-};

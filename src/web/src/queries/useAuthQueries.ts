@@ -1,7 +1,7 @@
 import { AxiosError } from 'axios';
 import { useMutation, UseMutationOptions } from '@tanstack/react-query';
 import { CreateUserRequestType, CreateUserResponseType } from '@/types/authApi';
-import { Login } from '@/api/axiosInstance';
+import { Login } from '@/api/authApi';
 
 export const useCreateUserMutation = (
   options?: UseMutationOptions<
