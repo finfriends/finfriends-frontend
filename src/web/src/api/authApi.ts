@@ -9,12 +9,12 @@ const authInstance: AxiosInstance = axios.create({
   },
 });
 
-export const refreshToken = async () => {
+export const refresh = async (): Promise<{ accessToken: string }> => {
   const response = await authInstance.post('/auth/token/refresh');
   return response.data;
 };
 
-export const oauthToken = async (params: CreateUserRequestType) => {
+export const Login = async (params: CreateUserRequestType) => {
   const response = await authInstance.post('/auth/oauth/token', params);
   return response.data;
 };

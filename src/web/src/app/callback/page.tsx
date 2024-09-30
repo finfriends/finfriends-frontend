@@ -1,14 +1,22 @@
 'use client';
 
 import { Suspense, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { useCreateUserMutation } from '@/queries/useAuthQueries';
 import { AuthProvider } from '@/constants/auth';
+import { LoadingIcon } from '@/icon/LoadingIcon';
 
 function CallbackComponent() {
   const params = useSearchParams();
   const code = params.get('code');
-  const { mutate } = useCreateUserMutation();
+  const router = useRouter(); // router 객체 생성
+  const { mutate } = useCreateUserMutation({
+    onSuccess: (data) => {
+      localStorage.setItem('accessToken', data.accessToken);
+      router.push('/training');
+    },
+    onError: () => router.push('/login'),
+  });
 
   useEffect(() => {
     if (code) {
@@ -21,7 +29,7 @@ function CallbackComponent() {
 
 export default function Home() {
   return (
-    <Suspense fallback={<div>로딩 중...</div>}>
+    <Suspense fallback={<LoadingIcon />}>
       <CallbackComponent />
     </Suspense>
   );

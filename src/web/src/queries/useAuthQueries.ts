@@ -1,7 +1,7 @@
 import { AxiosError } from 'axios';
 import { useMutation, UseMutationOptions } from '@tanstack/react-query';
-import { oauthToken } from '@/api/authApi';
 import { CreateUserRequestType, CreateUserResponseType } from '@/types/authApi';
+import { Login } from '@/api/authApi';
 
 export const useCreateUserMutation = (
   options?: UseMutationOptions<
@@ -13,5 +13,5 @@ export const useCreateUserMutation = (
 ) =>
   useMutation({
     ...options,
-    mutationFn: (params: CreateUserRequestType) => oauthToken(params),
+    mutationFn: (params: CreateUserRequestType) => Login(params),
   });

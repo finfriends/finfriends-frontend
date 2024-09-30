@@ -4,3 +4,5 @@ dist
 next.config.js
 tailwind.config.ts
 *.js
+
+src/components/ui
