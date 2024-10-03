@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import styled from '@emotion/styled';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Color } from '@/styles/color';
@@ -9,7 +10,7 @@ import { ScheduleTable } from '@/components/based-table/ ScheduleTable';
 import { TimeIcon } from '@/icon/TimeIcon';
 import Button from '@/components/common/Button';
 import { ButtonTheme } from '@/constants/button';
-import { useEffect } from 'react';
+import { scheduleTable } from '@/data/table-data';
 
 export default function BasedTablePage() {
   const router = useRouter();
@@ -19,6 +20,10 @@ export default function BasedTablePage() {
   const handleClickHere = () => {
     // url 수정 예정
     router.push('/training');
+  };
+
+  const handleClickStart = () => {
+    router.push(`/training/start-table?type=${tableType}`);
   };
 
   useEffect(() => {
@@ -37,7 +42,7 @@ export default function BasedTablePage() {
         </S.Title>
       </S.TitleWrap>
       <S.TableWrapper>
-        <ScheduleTable tableType={tableType} />
+        <ScheduleTable tableType={tableType} scheduleTable={scheduleTable} />
       </S.TableWrapper>
       <S.Description>
         <TimeIcon />
@@ -59,6 +64,7 @@ export default function BasedTablePage() {
               ? '시간 기반 테이블 훈련 시작'
               : '호흡 기반 테이블 훈련 시작'
           }
+          onClick={handleClickStart}
         />
       </S.ButtonWrapper>
     </S.Wrapper>

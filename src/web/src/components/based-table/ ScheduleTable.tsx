@@ -1,15 +1,15 @@
 import styled from '@emotion/styled';
 import { Color } from '@/styles/color';
 import { Typography } from '@/styles/fonts';
-import { scheduleTable } from '@/data/table-data';
 import { ScheduleTableType } from '@/types/data';
 import { secondsToMinutes } from '@/lib/handleTimeForm';
 
 type PropsType = {
   tableType: 'time' | 'breath';
+  scheduleTable: ScheduleTableType[];
 };
 
-export const ScheduleTable = ({ tableType }: PropsType) => {
+export const ScheduleTable = ({ tableType, scheduleTable }: PropsType) => {
   const tableTitle: string[] =
     tableType === 'time'
       ? ['순서', '준비 호흡', '숨 참기']
@@ -23,7 +23,7 @@ export const ScheduleTable = ({ tableType }: PropsType) => {
         ))}
       </S.TableHeader>
       <S.TableBody>
-        {scheduleTable.map((item: ScheduleTableType) => (
+        {scheduleTable?.map((item: ScheduleTableType) => (
           <li key={item.id}>
             <span>{item.id}</span>
             <span>

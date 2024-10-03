@@ -155,4 +155,10 @@ export const Typography = {
     line-height: 24px;
     font-weight: ${FontWeight.Medium};
   `,
+
+  TimerSeconds: `
+    font-size: 60px;
+    line-height: normal;
+    font-weight: ${FontWeight.Medium};
+  `,
 };
