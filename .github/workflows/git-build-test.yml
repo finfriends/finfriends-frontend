@@ -15,7 +15,7 @@ jobs:
         run: corepack enable
 
       - name: 📦 Install dependencies
-        run: yarn install
+        run: yarn install --no-harden
 
       - name: 🧹 Lint test
         run: yarn lint || exit 1
