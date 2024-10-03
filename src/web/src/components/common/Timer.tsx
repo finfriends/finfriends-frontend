@@ -34,7 +34,6 @@ export const Timer = ({
     } else if (time === 0) {
       setIsRunning(false);
     }
-
     return () => clearTimeout(timerId);
   }, [isRunning, isPaused, time]);
 
