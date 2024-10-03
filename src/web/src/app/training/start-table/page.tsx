@@ -65,7 +65,7 @@ export default function StartTablePage() {
       </S.TableWrapper>
       <S.TimeCont>
         <Timer
-          initialTime={10}
+          initialTime={30}
           title="준비 호흡"
           isRunning={isRunning}
           setIsRunning={setIsRunning}

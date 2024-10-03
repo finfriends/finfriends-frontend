@@ -13,7 +13,7 @@ const AuthGuard = ({ children }: { children: React.ReactNode }) => {
       if (axios.isAxiosError(error)) {
         switch (error.response?.status) {
           case 401:
-            // router.push('/login');
+            router.push('/login');
             break;
           default:
             break;
