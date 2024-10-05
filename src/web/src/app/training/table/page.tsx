@@ -1,5 +1,5 @@
 'use client';
 
 export default function TablePage() {
-  return <div>시간 기반 테이블 화면! 두둥</div>;
+  return <div>유저 트레이닝 기록 테이블</div>;
 }
