@@ -101,7 +101,6 @@ dist
 
 # vuepress v2.x temp and cache directory
 .temp
-.cache
 
 # Docusaurus cache and generated files
 .docusaurus
@@ -126,7 +125,6 @@ dist
 .yarn/unplugged
 .yarn/build-state.yml
 .yarn/install-state.gz
-.pnp.*
 
 docs/infra/local/cert/
 .idea
@@ -146,3 +144,5 @@ yarn-error.log
 **/.eslintcache
 
 __pycache__
+
+tunnel.yml
