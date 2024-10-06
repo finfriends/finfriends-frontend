@@ -1805,7 +1805,8 @@ __metadata:
     prettier: "npm:3.3.3"
     react: "npm:18.3.1"
     react-native: "npm:0.75.3"
-    react-native-webview: "npm:^13.12.1"
+    react-native-config: "npm:1.5.3"
+    react-native-webview: "npm:13.12.1"
     react-test-renderer: "npm:18.3.1"
     typescript: "npm:5.0.4"
   languageName: unknown
@@ -8816,16 +8817,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-webview@npm:^13.12.1":
-  version: 13.12.2
-  resolution: "react-native-webview@npm:13.12.2"
+"react-native-config@npm:1.5.3":
+  version: 1.5.3
+  resolution: "react-native-config@npm:1.5.3"
+  peerDependencies:
+    react-native-windows: ">=0.61"
+  peerDependenciesMeta:
+    react-native-windows:
+      optional: true
+  checksum: 10/ba5e38c907fa39ea072238a12bf4d5fca88e92bc8192974c7aceeadf814cf9f452dc30bcf705819d778c6e69ac2df699960c044f1c8c0c69cd5a8bcc9b7f555a
+  languageName: node
+  linkType: hard
+
+"react-native-webview@npm:13.12.1":
+  version: 13.12.1
+  resolution: "react-native-webview@npm:13.12.1"
   dependencies:
     escape-string-regexp: "npm:^4.0.0"
     invariant: "npm:2.2.4"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 10/a1217943be1b04f43e6e9f506a5b0a1da119428f477d7de1ee9abec956641e07c611e090b1ed94bd54bd82a4cf7cd1830b8d69e835a9e3532f2a53bdef0b3839
+  checksum: 10/08d792f99cb77ca3541f79c71c253504198d511ed45baf319ee34a494b63ec42a73aa0ac3532fa18825b47c177e9028a6fe5455395b8aa8602aa7abe041871ac
   languageName: node
   linkType: hard
 

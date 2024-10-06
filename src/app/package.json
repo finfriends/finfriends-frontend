@@ -3,8 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "android:dev:d": "react-native run-android --mode=developdebug",
+    "android:dev:r": "react-native run-android --mode=developrelease",
+    "android:prd:d": "react-native run-android --mode=productdebug",
+    "android:prd:r": "react-native run-android --mode=productrelease",
+    "ios:dev:d": "react-native run-ios --scheme Develop --mode Debug",
+    "ios:dev:r": "react-native run-ios --scheme Develop --mode Release",
+    "ios:prd:d": "react-native run-ios --scheme Product --mode Debug",
+    "ios:prd:r": "react-native run-ios --scheme Product --mode Release",
     "lint": "eslint ./ --quiet --cache --fix",
     "ts-check": "tsc --project ./tsconfig.json --noEmit",
     "start": "react-native start"
@@ -14,7 +20,8 @@
     "@emotion/react": "^11.13.3",
     "react": "18.3.1",
     "react-native": "0.75.3",
-    "react-native-webview": "^13.12.1"
+    "react-native-config": "1.5.3",
+    "react-native-webview": "13.12.1"
   },
   "devDependencies": {
     "@babel/core": "7.25.2",

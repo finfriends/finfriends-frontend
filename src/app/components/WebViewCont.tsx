@@ -4,10 +4,10 @@ import {WebView} from 'react-native-webview';
 import styled from '@emotion/native';
 import {handleDataFromWeb} from '../libs/handleDataFromWeb.ts';
 import {WebViewEventType} from '../types/message.ts';
+import Config from 'react-native-config';
 
 export const WebViewCont = () => {
-  // adb reverse tcp:3000 tcp:3000
-  const webUrl: string = 'http://localhost:3000';
+  const webUrl: string = Config.RN_APP_WEB_VIEW_URL || '';
   const webviewRef = useRef<WebView | null>(null);
   const fetchDataFromWeb = (e: WebViewEventType) => {
     const data = handleDataFromWeb(e.nativeEvent.data);
