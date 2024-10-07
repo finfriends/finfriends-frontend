@@ -3,9 +3,11 @@ import { LoadingIcon } from '@/icon/LoadingIcon';
 import { useUserConfigQuery } from '@/queries/useUserConfigQueries';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import { useUserInfo } from '@/contexts/UserInfoContext';
 
 const AuthGuard = ({ children }: { children: React.ReactNode }) => {
-  const { error, isLoading } = useUserConfigQuery();
+  const { error, isLoading, data: userConfigData } = useUserConfigQuery();
+  const { setUserConfig } = useUserInfo();
   const router = useRouter();
 
   useEffect(() => {
@@ -20,7 +22,11 @@ const AuthGuard = ({ children }: { children: React.ReactNode }) => {
         }
       }
     }
-  }, [error, isLoading, router]);
+
+    if (userConfigData && !error) {
+      setUserConfig(userConfigData);
+    }
+  }, [error, isLoading, router, userConfigData, setUserConfig]);
 
   if (isLoading) {
     return <LoadingIcon />;
