@@ -23,8 +23,15 @@
     "dev": "concurrently -c \"bgGreen.bold,bgMagenta.bold,bgYellow.bold,bgBlue.bold\" \"yarn:run-*\"",
     "run-web": "yarn @finfriends-frontend/web dev",
     "run-app": "yarn @finfriends-frontend/app start",
-    "android": "yarn @finfriends-frontend/app android",
-    "ios": "yarn @finfriends-frontend/app ios"
+    "android:dev:d": "yarn @finfriends-frontend/app android:dev:d",
+    "android:dev:r": "yarn @finfriends-frontend/app android:dev:r",
+    "android:prd:d": "yarn @finfriends-frontend/app android:prd:d",
+    "android:prd:r": "yarn @finfriends-frontend/app android:prd:r",
+    "ios": "yarn @finfriends-frontend/app ios",
+    "ios:dev:d": "yarn @finfriends-frontend/app ios:dev:d",
+    "ios:dev:r": "yarn @finfriends-frontend/app ios:dev:r",
+    "ios:prd:d": "yarn @finfriends-frontend/app ios:prd:d",
+    "ios:prd:r": "yarn @finfriends-frontend/app ios:prd:r"
   },
   "packageManager": "yarn@4.3.0"
 }
