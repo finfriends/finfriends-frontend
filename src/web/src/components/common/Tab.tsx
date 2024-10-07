@@ -41,8 +41,6 @@ export const Tab = <T extends TabProps>({
   );
 };
 
-export default Tab;
-
 namespace S {
   export const Wrapper = styled.div`
     width: 100%;
