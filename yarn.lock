@@ -1863,6 +1863,7 @@ __metadata:
     prettier: "npm:3.3.3"
     react: "npm:18"
     react-dom: "npm:18"
+    react-swipeable: "npm:7.0.1"
     tailwind-merge: "npm:2.5.2"
     tailwindcss: "npm:3.4.1"
     tailwindcss-animate: "npm:1.0.7"
@@ -8913,6 +8914,15 @@ __metadata:
   peerDependencies:
     react: ^16.0.0 || ^17.0.0 || ^18.0.0
   checksum: 10/06457fe5bcaa44aeca998905b6849304742ea1cc2d3841e4a0964c745ff392bc4dec07f8c779f317faacce3a0bf6f84e15020ac0fa81adb931067dbb0baf707b
+  languageName: node
+  linkType: hard
+
+"react-swipeable@npm:7.0.1":
+  version: 7.0.1
+  resolution: "react-swipeable@npm:7.0.1"
+  peerDependencies:
+    react: ^16.8.3 || ^17 || ^18
+  checksum: 10/b4aa3e8222e34d53f98df80075bdd7a034b33e733952844931a520158c49a892e53fdd497e53ee0f74c502eec21db3d6c9dbc97e251881c2032fe7fd5a0145c8
   languageName: node
   linkType: hard
 
