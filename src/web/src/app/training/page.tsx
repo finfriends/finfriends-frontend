@@ -9,7 +9,6 @@ import Link from 'next/link';
 import { StaticTopRecordBox } from '@/components/training/StaticTopRecordBox';
 import { TrainingStartBox } from '@/components/training/TrainingStartBox';
 import { TrainingType } from '@/constants/training';
-import React from 'react';
 
 const Page = () => {
   return (
