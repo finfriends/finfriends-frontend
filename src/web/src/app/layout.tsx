@@ -3,6 +3,7 @@
 import Providers from '@/app/providers';
 import { pretendard } from '@/styles/fonts';
 import '@/styles/reset.css';
+import '@/styles/globals.css';
 import styled from '@emotion/styled';
 import { Color } from '@/styles/color';
 
