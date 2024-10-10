@@ -19,6 +19,9 @@ const config = {
     },
     extend: {
       colors: {
+        modalTitle: '#1F222D',
+        modalDesc: '#4A515F',
+        modalBg: '#F6F7F8',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

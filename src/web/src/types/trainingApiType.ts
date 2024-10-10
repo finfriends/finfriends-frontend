@@ -29,3 +29,31 @@ export type StaticRecordResult = {
   userId: number;
   record: string;
 };
+
+export type GetTimeBasedRecordsResponse = {
+  result: TimeBasedRecordResult[];
+  nextUrl: string;
+};
+
+export type TimeBasedRecordResult = {
+  createdAt: string;
+  id: number;
+  userId: number;
+  standard: number;
+  totalRounds: number;
+  record: string;
+};
+
+export type GetBreathBasedRecordsResponse = {
+  result: BreathBasedRecordResult[];
+  nextUrl: string;
+};
+
+export type BreathBasedRecordResult = {
+  createdAt: string;
+  id: number;
+  userId: number;
+  breathBased: number;
+  totalRounds: number;
+  record: string;
+};

@@ -34,3 +34,10 @@ export const getStaticRecords = async (req: GetStaticRecordsRequest) => {
 
   return response.data;
 };
+
+export const deleteStaticRecord = async (recordId: number) => {
+  const response = await axiosInstance.delete(
+    `/trainings/static-records/${recordId}`
+  );
+  return response.data;
+};

@@ -1,7 +1,16 @@
-import { useQuery } from '@tanstack/react-query';
+import {
+  useMutation,
+  UseMutationOptions,
+  useQuery,
+} from '@tanstack/react-query';
 import { QueryKey } from '@/queries/queries';
-import { getHighestStaticRecord, getStaticRecords } from '@/api/trainingApi';
+import {
+  deleteStaticRecord,
+  getHighestStaticRecord,
+  getStaticRecords,
+} from '@/api/trainingApi';
 import { GetStaticRecordsRequest } from '@/types/trainingApiType';
+import { AxiosError } from 'axios';
 
 export const useGetHighestStaticRecordQuery = (userId: number) =>
   useQuery({
@@ -17,4 +26,18 @@ export const useGetStaticRecordsQuery = (params: GetStaticRecordsRequest) =>
     enabled: !!params.userId,
     queryFn: () => getStaticRecords(params),
     retry: false,
+  });
+
+export const useDeleteStaticRecordMutation = (
+  options?: UseMutationOptions<
+    unknown,
+    AxiosError,
+    { recordId: number },
+    unknown
+  >
+) =>
+  useMutation({
+    ...options,
+    mutationFn: (param: { recordId: number }) =>
+      deleteStaticRecord(param.recordId),
   });
