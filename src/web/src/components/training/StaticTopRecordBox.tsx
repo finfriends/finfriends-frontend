@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import Link from 'next/link';
 import { Color } from '@/styles/color';
 import { Typography } from '@/styles/fonts';
 import { useGetHighestStaticRecordQuery } from '@/queries/useTrainingQueries';
@@ -19,6 +20,7 @@ export const StaticTopRecordBox = () => {
     <S.Wrapper>
       <S.RecordBox>
         <div>스테틱 최고 기록</div>
+        {/* @TODO 기록설정하기 깜빡거리는 문제 해결 */}
         {isError ? (
           <div>기록 설정하러 가기</div>
         ) : (
@@ -28,7 +30,9 @@ export const StaticTopRecordBox = () => {
           </div>
         )}
       </S.RecordBox>
-      <S.Button>관리</S.Button>
+      <Link href="/training/static">
+        <S.Button>관리</S.Button>
+      </Link>
     </S.Wrapper>
   );
 };
