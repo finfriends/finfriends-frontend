@@ -6,6 +6,7 @@ import '@/styles/reset.css';
 import '@/styles/globals.css';
 import styled from '@emotion/styled';
 import { Color } from '@/styles/color';
+import { Toaster } from '@/components/ui/toaster';
 
 export default function RootLayout({
   children,
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="ko" className={pretendard.className}>
       <body>
         <Providers>
+          <Toaster />
           <S.Wrapper>
             <S.Container>{children}</S.Container>
           </S.Wrapper>

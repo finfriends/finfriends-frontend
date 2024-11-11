@@ -1,4 +1,4 @@
-import { GetStaticRecordsRequest } from '@/types/trainingApiType';
+import { GetRecordsRequest } from '@/types/trainingApiType';
 
 export const QueryKey = {
   Config: ['GetConfig'],
@@ -8,8 +8,20 @@ export const QueryKey = {
   GetHighestStaticRecord: () => [QueryKey.HighestStaticRecord],
 
   StaticRecord: ['StaticRecord'],
-  GetStaticRecords: (params: GetStaticRecordsRequest) => [
+  GetStaticRecords: (params: GetRecordsRequest) => [
     ...QueryKey.StaticRecord,
+    params,
+  ],
+
+  TimeBased: ['TimeBased'],
+  GetTimeBasedRecords: (params: GetRecordsRequest) => [
+    QueryKey.TimeBased,
+    params,
+  ],
+
+  BreathBased: ['BreathBased'],
+  GetBreathBasedRecords: (params: GetRecordsRequest) => [
+    QueryKey.BreathBased,
     params,
   ],
 };

@@ -10,9 +10,11 @@ export const StaticTopRecordBox = () => {
   const { data: highestStaticRecordData, isError } =
     useGetHighestStaticRecordQuery(userConfig?.userId || 0);
 
-  const formatTime = (timeString: string) => {
-    const [minutes, seconds] = timeString.split(':').map(Number);
-    return `${minutes}분 ${seconds}초`;
+  const formatSecondsToMinutesAndSeconds = (seconds: number): string => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+
+    return `${minutes}분 ${remainingSeconds}초`;
   };
 
   return (
@@ -24,7 +26,7 @@ export const StaticTopRecordBox = () => {
         ) : (
           <div>
             {highestStaticRecordData &&
-              `🔥 ${formatTime(highestStaticRecordData.record)}`}
+              `🔥 ${formatSecondsToMinutesAndSeconds(highestStaticRecordData.record)}`}
           </div>
         )}
       </S.RecordBox>
