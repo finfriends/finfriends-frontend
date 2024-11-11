@@ -7,6 +7,7 @@ const authInstance: AxiosInstance = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+  withCredentials: true,
 });
 
 export const refresh = async (): Promise<{ accessToken: string }> => {

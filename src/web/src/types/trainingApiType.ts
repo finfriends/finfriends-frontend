@@ -1,5 +1,5 @@
 export type GetHighestStaticRecordResponse = {
-  record: string;
+  record: number;
 };
 
 export type GetUserTrainingConfigResponse = {
@@ -12,7 +12,7 @@ export type GetUserTrainingConfigResponse = {
   preparatoryBreathDuration: number;
 };
 
-export type GetStaticRecordsRequest = {
+export type GetRecordsRequest = {
   userId: number;
   cursor?: number;
   limit?: number;
@@ -39,9 +39,9 @@ export type TimeBasedRecordResult = {
   createdAt: string;
   id: number;
   userId: number;
-  standard: number;
+  staticRecord: number;
   totalRounds: number;
-  record: string;
+  totalSetTime: number;
 };
 
 export type GetBreathBasedRecordsResponse = {
@@ -53,7 +53,7 @@ export type BreathBasedRecordResult = {
   createdAt: string;
   id: number;
   userId: number;
-  breathBased: number;
+  preparatoryBreathDuration: number;
   totalRounds: number;
-  record: string;
+  totalSetTime: number;
 };

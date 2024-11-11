@@ -4,20 +4,20 @@ import { Color } from '@/styles/color';
 import { Typography } from '@/styles/fonts';
 import { useUserInfo } from '@/contexts/UserInfoContext';
 import {
-  useDeleteStaticRecordMutation,
-  useGetStaticRecordsQuery,
+  useDeleteTimeBasedMutation,
+  useGetTimeBasedQuery,
 } from '@/queries/useTrainingQueries';
 import { SwipeableRow } from '@/components/training/table/SwipeableRow';
 import { formatDateToYYMMDD } from '@/utils/dateFormatter';
 
 export const TimeRecordTable = () => {
   const { userConfig } = useUserInfo();
-  const { data, refetch } = useGetStaticRecordsQuery({
+  const { data, refetch } = useGetTimeBasedQuery({
     userId: userConfig?.userId || 0,
     limit: 100,
   });
 
-  const { mutateAsync: deleteRecord } = useDeleteStaticRecordMutation();
+  const { mutateAsync: deleteRecord } = useDeleteTimeBasedMutation();
 
   const handeClickDelete = useCallback(
     (recordId: number) => {
@@ -36,15 +36,15 @@ export const TimeRecordTable = () => {
         <S.TableItem>총 시간</S.TableItem>
         <S.TableItem>날짜</S.TableItem>
       </S.TableHeader>
-      {data?.result.map((record, index) => (
+      {data?.result.map((record) => (
         <SwipeableRow
           key={record.id}
           recordId={record.id}
           onDelete={handeClickDelete}
         >
-          <S.TableItem>{index + 1}</S.TableItem>
-          <S.TableItem>{record.record}</S.TableItem>
-          <S.TableItem>{formatDateToYYMMDD(record.createdAt)}</S.TableItem>
+          <S.TableItem>{record.staticRecord}</S.TableItem>
+          <S.TableItem>{record.totalRounds}</S.TableItem>
+          <S.TableItem>{record.totalSetTime}</S.TableItem>
           <S.TableItem>{formatDateToYYMMDD(record.createdAt)}</S.TableItem>
         </SwipeableRow>
       ))}
