@@ -14,7 +14,7 @@ import { formatSecondsToMinutesAndSeconds } from '@/utils/numberFormatter';
 export const BreathRecordTable = () => {
   const { userConfig } = useUserInfo();
   const { data, refetch } = useGetBreathBasedQuery({
-    userId: userConfig?.userId || 0,
+    userId: userConfig?.id || 0,
     limit: 100,
   });
 

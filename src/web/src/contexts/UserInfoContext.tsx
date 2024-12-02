@@ -5,11 +5,11 @@ import React, {
   ReactNode,
   useMemo,
 } from 'react';
-import { GetUserTrainingConfigResponse } from '@/types/trainingApiType';
+import { UserInfoResponseType } from '@/types/authApi';
 
 interface UserInfoContextType {
-  userConfig: GetUserTrainingConfigResponse | null;
-  setUserConfig: (config: GetUserTrainingConfigResponse | null) => void;
+  userConfig: UserInfoResponseType | null;
+  setUserConfig: (config: UserInfoResponseType | null) => void;
 }
 
 const UserInfoContext = createContext<UserInfoContextType | undefined>(
@@ -17,8 +17,9 @@ const UserInfoContext = createContext<UserInfoContextType | undefined>(
 );
 
 export const UserInfoProvider = ({ children }: { children: ReactNode }) => {
-  const [userConfig, setUserConfig] =
-    useState<GetUserTrainingConfigResponse | null>(null);
+  const [userConfig, setUserConfig] = useState<UserInfoResponseType | null>(
+    null
+  );
 
   const value = useMemo(() => ({ userConfig, setUserConfig }), [userConfig]);
 
