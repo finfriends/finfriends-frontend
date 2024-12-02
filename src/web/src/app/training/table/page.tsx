@@ -33,6 +33,7 @@ namespace S {
     padding-bottom: 34px;
     box-sizing: border-box;
     flex-direction: column;
+    background: ${Color.BackgroundDarkBox};
   `;
 
   export const Header = styled.div`

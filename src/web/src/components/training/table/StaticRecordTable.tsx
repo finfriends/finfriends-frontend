@@ -9,6 +9,7 @@ import {
 import { useUserInfo } from '@/contexts/UserInfoContext';
 import { formatDateToYYMMDD } from '@/utils/dateFormatter';
 import { SwipeableRow } from '@/components/training/table/SwipeableRow';
+import { formatSecondsToMinutesAndSeconds } from '@/utils/numberFormatter';
 
 export const StaticRecordTable = () => {
   const { userConfig } = useUserInfo();
@@ -41,7 +42,9 @@ export const StaticRecordTable = () => {
           onDelete={handeClickDelete}
         >
           <div style={{ width: '20%' }}>{index + 1}</div>
-          <div style={{ width: '40%' }}>{record.record}</div>
+          <div style={{ width: '40%' }}>
+            {formatSecondsToMinutesAndSeconds(record.record)}
+          </div>
           <div style={{ width: '40%' }}>
             {formatDateToYYMMDD(record.createdAt)}
           </div>

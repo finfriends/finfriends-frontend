@@ -4,18 +4,12 @@ import { Color } from '@/styles/color';
 import { Typography } from '@/styles/fonts';
 import { useGetHighestStaticRecordQuery } from '@/queries/useTrainingQueries';
 import { useUserInfo } from '@/contexts/UserInfoContext';
+import { formatSecondsToMinutesAndSeconds } from '@/utils/numberFormatter';
 
 export const StaticTopRecordBox = () => {
   const { userConfig } = useUserInfo();
   const { data: highestStaticRecordData, isError } =
     useGetHighestStaticRecordQuery(userConfig?.userId || 0);
-
-  const formatSecondsToMinutesAndSeconds = (seconds: number): string => {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
-
-    return `${minutes}분 ${remainingSeconds}초`;
-  };
 
   return (
     <S.Wrapper>
@@ -26,7 +20,7 @@ export const StaticTopRecordBox = () => {
         ) : (
           <div>
             {highestStaticRecordData &&
-              `🔥 ${formatSecondsToMinutesAndSeconds(highestStaticRecordData.record)}`}
+              `🔥 ${formatSecondsToMinutesAndSeconds(highestStaticRecordData.record, 'text')}`}
           </div>
         )}
       </S.RecordBox>

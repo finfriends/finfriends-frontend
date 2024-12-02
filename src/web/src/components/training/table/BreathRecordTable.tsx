@@ -9,6 +9,7 @@ import {
 } from '@/queries/useTrainingQueries';
 import { SwipeableRow } from '@/components/training/table/SwipeableRow';
 import { formatDateToYYMMDD } from '@/utils/dateFormatter';
+import { formatSecondsToMinutesAndSeconds } from '@/utils/numberFormatter';
 
 export const BreathRecordTable = () => {
   const { userConfig } = useUserInfo();
@@ -44,7 +45,9 @@ export const BreathRecordTable = () => {
         >
           <S.TableItem>{record.preparatoryBreathDuration}</S.TableItem>
           <S.TableItem>{record.totalRounds}</S.TableItem>
-          <S.TableItem>{record.totalSetTime}</S.TableItem>
+          <S.TableItem>
+            {formatSecondsToMinutesAndSeconds(record.totalSetTime)}
+          </S.TableItem>
           <S.TableItem>{formatDateToYYMMDD(record.createdAt)}</S.TableItem>
         </SwipeableRow>
       ))}

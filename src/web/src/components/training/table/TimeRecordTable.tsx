@@ -9,6 +9,7 @@ import {
 } from '@/queries/useTrainingQueries';
 import { SwipeableRow } from '@/components/training/table/SwipeableRow';
 import { formatDateToYYMMDD } from '@/utils/dateFormatter';
+import { formatSecondsToMinutesAndSeconds } from '@/utils/numberFormatter';
 
 export const TimeRecordTable = () => {
   const { userConfig } = useUserInfo();
@@ -42,9 +43,13 @@ export const TimeRecordTable = () => {
           recordId={record.id}
           onDelete={handeClickDelete}
         >
-          <S.TableItem>{record.staticRecord}</S.TableItem>
+          <S.TableItem>
+            {formatSecondsToMinutesAndSeconds(record.staticRecord)}
+          </S.TableItem>
           <S.TableItem>{record.totalRounds}</S.TableItem>
-          <S.TableItem>{record.totalSetTime}</S.TableItem>
+          <S.TableItem>
+            {formatSecondsToMinutesAndSeconds(record.totalSetTime)}
+          </S.TableItem>
           <S.TableItem>{formatDateToYYMMDD(record.createdAt)}</S.TableItem>
         </SwipeableRow>
       ))}

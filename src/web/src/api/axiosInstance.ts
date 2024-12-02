@@ -10,6 +10,7 @@ export const axiosInstance: AxiosInstance = axios.create({
 });
 
 export const setAccessToken = (token: string) => {
+  localStorage.setItem('accessToken', token);
   axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
