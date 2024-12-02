@@ -14,7 +14,7 @@ import { formatSecondsToMinutesAndSeconds } from '@/utils/numberFormatter';
 export const StaticRecordTable = () => {
   const { userConfig } = useUserInfo();
   const { data, refetch } = useGetStaticRecordsQuery({
-    userId: userConfig?.userId || 0,
+    userId: userConfig?.id || 0,
     limit: 100,
   });
 

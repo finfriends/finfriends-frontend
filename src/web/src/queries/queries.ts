@@ -1,6 +1,9 @@
 import { GetRecordsRequest } from '@/types/trainingApiType';
 
 export const QueryKey = {
+  Me: ['GetMe'],
+  GetMe: () => [QueryKey.Me],
+
   Config: ['GetConfig'],
   GetConfig: () => [QueryKey.Config],
 

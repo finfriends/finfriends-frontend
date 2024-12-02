@@ -3,6 +3,6 @@ export enum AuthProvider {
 }
 
 export enum UserRole {
-  'User' = 'User',
+  'USER' = 'USER',
   'Admin' = 'Admin',
 }

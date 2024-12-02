@@ -9,7 +9,7 @@ import { formatSecondsToMinutesAndSeconds } from '@/utils/numberFormatter';
 export const StaticTopRecordBox = () => {
   const { userConfig } = useUserInfo();
   const { data: highestStaticRecordData, isError } =
-    useGetHighestStaticRecordQuery(userConfig?.userId || 0);
+    useGetHighestStaticRecordQuery(userConfig?.id || 0);
 
   return (
     <S.Wrapper>

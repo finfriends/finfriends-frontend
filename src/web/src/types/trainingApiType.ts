@@ -10,6 +10,13 @@ export type GetUserTrainingConfigResponse = {
   breathBasedTotalRounds: number;
   skipBreathBasedPreparatoryBreath: boolean;
   preparatoryBreathDuration: number;
+  highestStaticRecord: {
+    createdAt: Date;
+    updatedAt: Date;
+    id: number;
+    userId: number;
+    record: number;
+  };
 };
 
 export type GetRecordsRequest = {

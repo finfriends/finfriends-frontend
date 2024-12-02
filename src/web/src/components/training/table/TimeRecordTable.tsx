@@ -14,7 +14,7 @@ import { formatSecondsToMinutesAndSeconds } from '@/utils/numberFormatter';
 export const TimeRecordTable = () => {
   const { userConfig } = useUserInfo();
   const { data, refetch } = useGetTimeBasedQuery({
-    userId: userConfig?.userId || 0,
+    userId: userConfig?.id || 0,
     limit: 100,
   });
 
