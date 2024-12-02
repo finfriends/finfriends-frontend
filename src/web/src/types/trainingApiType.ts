@@ -27,7 +27,7 @@ export type StaticRecordResult = {
   createdAt: string;
   id: number;
   userId: number;
-  record: string;
+  record: number;
 };
 
 export type GetTimeBasedRecordsResponse = {
