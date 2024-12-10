@@ -1,4 +1,8 @@
 export type GetHighestStaticRecordResponse = {
+  createdAt: Date;
+  updatedAt: Date;
+  id: number;
+  userId: number;
   record: number;
 };
 
@@ -10,13 +14,16 @@ export type GetUserTrainingConfigResponse = {
   breathBasedTotalRounds: number;
   skipBreathBasedPreparatoryBreath: boolean;
   preparatoryBreathDuration: number;
-  highestStaticRecord: {
-    createdAt: Date;
-    updatedAt: Date;
-    id: number;
-    userId: number;
-    record: number;
-  };
+  highestStaticRecord: GetHighestStaticRecordResponse;
+};
+
+export type ChangeUserConfigRequest = {
+  hasAudioCountdown: boolean;
+  timeBasedTotalRounds: number;
+  skipTimeBasedPreparatoryBreath: boolean;
+  breathBasedTotalRounds: number;
+  skipBreathBasedPreparatoryBreath: boolean;
+  preparatoryBreathDuration: number;
 };
 
 export type GetRecordsRequest = {
