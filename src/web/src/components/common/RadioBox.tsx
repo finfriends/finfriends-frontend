@@ -4,16 +4,19 @@ import { CheckedRadioIcon } from '@/icon/CheckedRadioIcon';
 import { UncheckedRadioIcon } from '@/icon/UncheckedRadioIcon';
 import { DisabledRadioIcon } from '@/icon/DisabledRadioIcon';
 import { Typography } from '@/styles/fonts';
+import { Color } from '@/styles/color';
 
 const RadioBox = ({
   onClick,
   isChecked,
   label,
+  color,
   isDisabled,
 }: {
   onClick: () => void;
   isChecked: boolean;
   label: string;
+  color?: string;
   isDisabled?: boolean;
 }) => {
   return (
@@ -21,7 +24,7 @@ const RadioBox = ({
       {!isDisabled && isChecked && <CheckedRadioIcon />}
       {!isDisabled && !isChecked && <UncheckedRadioIcon />}
       {isDisabled && <DisabledRadioIcon />}
-      <S.label>{label}</S.label>
+      <S.label color={color}>{label}</S.label>
     </S.Wrapper>
   );
 };
@@ -37,7 +40,8 @@ namespace S {
     gap: 12px;
   `;
 
-  export const label = styled.div`
+  export const label = styled.div<{ color?: string }>`
     ${Typography.B1Regular};
+    color: ${({ color }) => color || Color.Text000};
   `;
 }
