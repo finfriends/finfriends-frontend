@@ -2,13 +2,13 @@ import { GetRecordsRequest } from '@/types/trainingApiType';
 
 export const QueryKey = {
   Me: ['GetMe'],
-  GetMe: () => [QueryKey.Me],
+  GetMe: () => [...QueryKey.Me],
 
   Config: ['GetConfig'],
-  GetConfig: () => [QueryKey.Config],
+  GetConfig: () => [...QueryKey.Config],
 
   HighestStaticRecord: ['HighestStaticRecord'],
-  GetHighestStaticRecord: () => [QueryKey.HighestStaticRecord],
+  GetHighestStaticRecord: () => [...QueryKey.HighestStaticRecord],
 
   StaticRecord: ['StaticRecord'],
   GetStaticRecords: (params: GetRecordsRequest) => [

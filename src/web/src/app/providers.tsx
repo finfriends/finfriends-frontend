@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 import { GuestRoute } from '@/constants/routes';
 import { UserInfoProvider } from '@/contexts/UserInfoContext';
 
-const queryClient = new QueryClient();
+export const queryClient = new QueryClient();
 const AuthGuard = dynamic(() => import('@/components/common/AuthGuard'), {
   ssr: false,
 });

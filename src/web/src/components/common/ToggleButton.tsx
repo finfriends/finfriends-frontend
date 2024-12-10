@@ -3,14 +3,16 @@ import { ActiveToggleIcon } from '@/icon/ActiveToggleIcon';
 import { InactiveToggleIcon } from '@/icon/InactiveToggleIcon';
 
 const ToggleButton = ({
+  name,
   isActive,
   onChange,
 }: {
+  name: string;
   isActive: boolean;
-  onChange: (state: boolean) => void;
+  onChange: (key: string, state: boolean) => void;
 }) => {
-  const handleToggleInactive = () => onChange(false);
-  const handleToggleActive = () => onChange(true);
+  const handleToggleInactive = () => onChange(name, false);
+  const handleToggleActive = () => onChange(name, true);
 
   if (isActive)
     return (

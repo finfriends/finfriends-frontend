@@ -33,5 +33,7 @@ export const Color = {
   Yellow24: '#FFC7593D',
   Yellow8: '#FFC75914',
 
+  Etc: '#FFCF72',
+
   PendingSecond: '#D1D4DA',
 };
