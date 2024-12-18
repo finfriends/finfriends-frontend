@@ -7,9 +7,9 @@ import { useUserInfo } from '@/contexts/UserInfoContext';
 import { formatSecondsToMinutesAndSeconds } from '@/utils/numberFormatter';
 
 export const StaticTopRecordBox = () => {
-  const { userConfig } = useUserInfo();
+  const { userInfo } = useUserInfo();
   const { data: highestStaticRecordData, isError } =
-    useGetHighestStaticRecordQuery(userConfig?.id || 0);
+    useGetHighestStaticRecordQuery(userInfo?.id || 0);
 
   return (
     <S.Wrapper>

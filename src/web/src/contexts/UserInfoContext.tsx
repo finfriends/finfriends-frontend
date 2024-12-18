@@ -8,8 +8,8 @@ import React, {
 import { UserInfoResponseType } from '@/types/authApi';
 
 interface UserInfoContextType {
-  userConfig: UserInfoResponseType | null;
-  setUserConfig: (config: UserInfoResponseType | null) => void;
+  userInfo: UserInfoResponseType | null;
+  setUserInfo: (config: UserInfoResponseType | null) => void;
 }
 
 const UserInfoContext = createContext<UserInfoContextType | undefined>(
@@ -17,11 +17,9 @@ const UserInfoContext = createContext<UserInfoContextType | undefined>(
 );
 
 export const UserInfoProvider = ({ children }: { children: ReactNode }) => {
-  const [userConfig, setUserConfig] = useState<UserInfoResponseType | null>(
-    null
-  );
+  const [userInfo, setUserInfo] = useState<UserInfoResponseType | null>(null);
 
-  const value = useMemo(() => ({ userConfig, setUserConfig }), [userConfig]);
+  const value = useMemo(() => ({ userInfo, setUserInfo }), [userInfo]);
 
   return (
     <UserInfoContext.Provider value={value}>
