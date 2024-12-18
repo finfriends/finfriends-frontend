@@ -12,9 +12,9 @@ import { SwipeableRow } from '@/components/training/table/SwipeableRow';
 import { formatSecondsToMinutesAndSeconds } from '@/utils/numberFormatter';
 
 export const StaticRecordTable = () => {
-  const { userConfig } = useUserInfo();
+  const { userInfo } = useUserInfo();
   const { data, refetch } = useGetStaticRecordsQuery({
-    userId: userConfig?.id || 0,
+    userId: userInfo?.id || 0,
     limit: 100,
   });
 

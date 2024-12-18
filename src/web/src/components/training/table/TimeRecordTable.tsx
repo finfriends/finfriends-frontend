@@ -12,9 +12,9 @@ import { formatDateToYYMMDD } from '@/utils/dateFormatter';
 import { formatSecondsToMinutesAndSeconds } from '@/utils/numberFormatter';
 
 export const TimeRecordTable = () => {
-  const { userConfig } = useUserInfo();
+  const { userInfo } = useUserInfo();
   const { data, refetch } = useGetTimeBasedQuery({
-    userId: userConfig?.id || 0,
+    userId: userInfo?.id || 0,
     limit: 100,
   });
 

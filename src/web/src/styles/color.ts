@@ -1,5 +1,6 @@
 export const Color = {
   White: '#FFF',
+  WhiteGrey: '#F1F1F1',
 
   Text900: '#1F222D',
   Text800: '#2A303C',

@@ -7,7 +7,7 @@ import { useUserInfoQuery } from '@/queries/useUserQueries';
 
 const AuthGuard = ({ children }: { children: React.ReactNode }) => {
   const { error, isLoading, data: userInfoData } = useUserInfoQuery();
-  const { setUserConfig } = useUserInfo();
+  const { setUserInfo } = useUserInfo();
   const router = useRouter();
 
   useEffect(() => {
@@ -24,9 +24,9 @@ const AuthGuard = ({ children }: { children: React.ReactNode }) => {
     }
 
     if (userInfoData && !error) {
-      setUserConfig(userInfoData);
+      setUserInfo(userInfoData);
     }
-  }, [error, isLoading, router, userInfoData, setUserConfig]);
+  }, [error, isLoading, router, userInfoData, setUserInfo]);
 
   if (isLoading) {
     return <LoadingIcon />;
