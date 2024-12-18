@@ -110,7 +110,9 @@ export const Setting = () => {
       <S.Divider />
       <S.Item>
         회원 정보
-        <RightArrowIcon />
+        <Link href="/training/setting/user-info">
+          <RightArrowIcon />
+        </Link>
       </S.Item>
     </S.Wrapper>
   );

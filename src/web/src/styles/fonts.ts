@@ -134,6 +134,17 @@ export const Typography = {
     line-height: 20px;
     font-weight: ${FontWeight.Regular};
   `,
+  B3UnderLine: `
+  font-size: 14px;
+  font-weight: ${FontWeight.Medium};
+  line-height: 20px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+`,
   B4Bold: `
     font-size: 12px;
     line-height: 19px;
