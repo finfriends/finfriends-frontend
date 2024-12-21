@@ -7,8 +7,9 @@ import { useRouter } from 'next/navigation';
 import { CloseIcon } from '@/icon/CloseIcon';
 import Button from '@/components/common/Button';
 import { ButtonTheme } from '@/constants/button';
-import clap from 'assets/images/lottie/clap.json';
+import clap from '@/assets/images/lottie/clap.json';
 import Lottie from 'react-lottie-player';
+import Link from 'next/link';
 
 export default function TopRecordPage() {
   const router = useRouter();
@@ -23,18 +24,25 @@ export default function TopRecordPage() {
           <CloseIcon color={Color.White} />
         </button>
       </S.Header>
-      <S.ContentWrapper>
-        <div>
-          <Lottie animationData={clap} play />
+      <S.Container>
+        <S.ContentWrapper>
+          <Lottie
+            animationData={clap}
+            play
+            style={{ width: '200px', height: '200px' }}
+            loop={false}
+          />
           <S.TopRecordTitle>최고 기록을 달성했어요!</S.TopRecordTitle>
           <S.TopRecordDesc>
             돌고래와 노는 시간이 더 길어졌어요!
             <br />
             다음 기록 도전을 기다릴게요
           </S.TopRecordDesc>
-        </div>
-        <Button theme={ButtonTheme.Primary} label="테이블 훈련하러 가기" />
-      </S.ContentWrapper>
+        </S.ContentWrapper>
+        <Link href="/training">
+          <Button theme={ButtonTheme.Primary} label="테이블 훈련하러 가기" />
+        </Link>
+      </S.Container>
     </S.Wrapper>
   );
 }
@@ -57,12 +65,21 @@ namespace S {
     position: relative;
   `;
 
-  export const ContentWrapper = styled.div`
+  export const Container = styled.div`
     padding: 0 24px;
     height: 100%;
     display: flex;
+    gap: 20px;
     flex-direction: column;
     justify-content: space-between;
+  `;
+
+  export const ContentWrapper = styled.div`
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   `;
 
   export const TopRecordTitle = styled.div`
