@@ -5,6 +5,7 @@ import {
 } from '@tanstack/react-query';
 import { QueryKey } from '@/queries/queries';
 import {
+  createStaticRecord,
   deleteBreathBasedRecord,
   deleteStaticRecord,
   deleteTimeBasedRecord,
@@ -44,6 +45,14 @@ export const useDeleteStaticRecordMutation = (
     ...options,
     mutationFn: (param: { recordId: number }) =>
       deleteStaticRecord(param.recordId),
+  });
+
+export const useCreateStaticRecordMutation = (
+  options?: UseMutationOptions<unknown, AxiosError, { record: number }, unknown>
+) =>
+  useMutation({
+    ...options,
+    mutationFn: (param: { record: number }) => createStaticRecord(param.record),
   });
 
 export const useGetBreathBasedQuery = (params: GetRecordsRequest) =>
