@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .B1Regular {
+        @apply text-[17px] leading-[24px] font-normal;
+    }
+}

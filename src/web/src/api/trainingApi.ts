@@ -44,6 +44,13 @@ export const deleteStaticRecord = async (recordId: number) => {
   return response.data;
 };
 
+export const createStaticRecord = async (record: number) => {
+  const response = await axiosInstance.post(`/trainings/static-records`, {
+    record,
+  });
+  return response.data;
+};
+
 export const getBreathBasedRecords = async (req: GetRecordsRequest) => {
   let queryString = `/trainings/breath-based?userId=${req.userId}`;
 

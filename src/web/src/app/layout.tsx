@@ -4,6 +4,7 @@ import Providers from '@/app/providers';
 import { pretendard } from '@/styles/fonts';
 import '@/styles/reset.css';
 import '@/styles/globals.css';
+import '@/styles/tailwind.css';
 import styled from '@emotion/styled';
 import { Color } from '@/styles/color';
 import { Toaster } from '@/components/ui/toaster';
@@ -34,9 +35,9 @@ namespace S {
     display: flex;
     justify-content: center;
     align-items: center;
-    @media (min-width: 768px) {
-      background: ${Color.BackgroundDarkBox};
-    }
+    // @media (min-width: 768px) {
+    //   background: ${Color.BackgroundDarkBox};
+    // }
   `;
 
   export const Container = styled.div`
