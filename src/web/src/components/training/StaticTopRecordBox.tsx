@@ -5,6 +5,7 @@ import { Typography } from '@/styles/fonts';
 import { useGetHighestStaticRecordQuery } from '@/queries/useTrainingQueries';
 import { useUserInfo } from '@/contexts/UserInfoContext';
 import { formatSecondsToMinutesAndSeconds } from '@/utils/numberFormatter';
+import Link from 'next/link';
 
 export const StaticTopRecordBox = () => {
   const { userInfo } = useUserInfo();
@@ -24,7 +25,9 @@ export const StaticTopRecordBox = () => {
           </div>
         )}
       </S.RecordBox>
-      <S.Button>관리</S.Button>
+      <Link href="/training/static-training">
+        <S.Button>관리</S.Button>
+      </Link>
     </S.Wrapper>
   );
 };

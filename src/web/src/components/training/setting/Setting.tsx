@@ -55,7 +55,9 @@ export const Setting = () => {
                 'text'
               )
             : '기록 설정하러 가기'}
-          <RightArrowIcon />
+          <Link href="/training/static-training">
+            <RightArrowIcon />
+          </Link>
         </S.StaticRecordButton>
       </S.Item>
       <S.Divider />
