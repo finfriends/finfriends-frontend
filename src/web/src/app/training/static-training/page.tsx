@@ -7,6 +7,7 @@ import { LeftArrowIcon } from '@/icon/LeftArrowIcon';
 import { useRouter } from 'next/navigation';
 import { RecordSelect } from '@/components/training/static/RecordSelect';
 import { ClockIcon } from '@/icon/ClockIcon';
+import { StaticTimer } from '@/components/training/static/StaticTimer';
 
 export default function TablePage() {
   const router = useRouter();
@@ -28,6 +29,7 @@ export default function TablePage() {
           <div>기록 직접 입력</div>
         </S.ManualRecordTitle>
         <RecordSelect />
+        <StaticTimer />
       </S.Content>
     </S.Wrapper>
   );
