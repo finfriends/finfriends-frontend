@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import {
   Select,
   SelectContent,
@@ -12,13 +12,18 @@ import { useCreateStaticRecordMutation } from '@/queries/useTrainingQueries';
 import Button from '@/components/common/Button';
 import { ButtonTheme } from '@/constants/button';
 
-export const RecordSelect: React.FC = () => {
+export const RecordSelect = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedRecord, setSelectedRecord] = useState<number>(0);
-
   const { mutate } = useCreateStaticRecordMutation();
+
+  const SelectRecord = useCallback(() => {
+    mutate({ record: selectedRecord });
+    setIsOpen(false);
+  }, [mutate, selectedRecord]);
+
   return (
-    <Select onOpenChange={setIsOpen} open>
+    <Select onOpenChange={setIsOpen} open={isOpen}>
       <SelectTrigger
         icon={<BottomArrowIcon />}
         className={`w-full h-fit bg-BackgroundDarkBox B1Regular text-LineSecond rounded-lg px-5 py-4 border-[1.5px] border-solid border-BackgroundDarkBox ${isOpen && 'border-MainBlue3'}`}
@@ -29,7 +34,7 @@ export const RecordSelect: React.FC = () => {
         <TimeSelectContent setSelectedRecord={setSelectedRecord} />
         <Button
           theme={ButtonTheme.Outline}
-          onClick={() => mutate({ record: selectedRecord })}
+          onClick={SelectRecord}
           label="확인"
         />
       </SelectContent>
