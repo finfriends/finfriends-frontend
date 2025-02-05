@@ -16,11 +16,12 @@ export const ImageBackgroundLayout = ({
     </S.OuterWrapper>
   );
 };
+
 namespace S {
   export const OuterWrapper = styled.div`
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
   `;
