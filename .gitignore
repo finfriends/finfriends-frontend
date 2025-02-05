@@ -147,3 +147,5 @@ yarn-error.log
 __pycache__
 
 tunnel.yml
+
+.DS_Store
