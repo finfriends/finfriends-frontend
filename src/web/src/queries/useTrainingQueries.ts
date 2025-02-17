@@ -48,7 +48,12 @@ export const useDeleteStaticRecordMutation = (
   });
 
 export const useCreateStaticRecordMutation = (
-  options?: UseMutationOptions<unknown, AxiosError, { record: number }, unknown>
+  options?: UseMutationOptions<
+    { highest: boolean },
+    AxiosError,
+    { record: number },
+    unknown
+  >
 ) =>
   useMutation({
     ...options,
