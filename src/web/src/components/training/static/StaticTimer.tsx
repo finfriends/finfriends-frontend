@@ -12,11 +12,20 @@ import { useCreateStaticRecordMutation } from '@/queries/useTrainingQueries';
 
 export const StaticTimer = () => {
   const [isRunning, setIsRunning] = useState(false);
-  const [time, setTime] = useState(0);
+  const [staticRecordTime, setStaticRecordTime] = useState(0);
   const startTimeRef = useRef<number | null>(null);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const { mutate } = useCreateStaticRecordMutation();
   const router = useRouter();
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const { mutate } = useCreateStaticRecordMutation({
+    onSuccess: (res) => {
+      router.replace(
+        res?.highest
+          ? '/training/static-training/done/top-record'
+          : '/training/static-training/done'
+      );
+    },
+  });
 
   const formatTime = useCallback((seconds: number) => {
     const mins = Math.floor(seconds / 60)
@@ -29,34 +38,32 @@ export const StaticTimer = () => {
   const updateTimer = useCallback(() => {
     if (startTimeRef.current) {
       const elapsed = Math.floor((Date.now() - startTimeRef.current) / 1000);
-      setTime(elapsed);
+      setStaticRecordTime(elapsed);
     }
   }, []);
 
   const handleStart = useCallback(() => {
-    if (!isRunning) {
-      startTimeRef.current = Date.now();
-      setIsRunning(true);
-      timerRef.current = setInterval(updateTimer, 1000);
-    }
+    if (isRunning) return;
+
+    startTimeRef.current = Date.now();
+    setIsRunning(true);
+    timerRef.current = setInterval(updateTimer, 1000);
   }, [isRunning, updateTimer]);
 
   const handleStop = useCallback(async () => {
-    if (isRunning) {
-      if (startTimeRef.current) {
-        const elapsed = Math.floor((Date.now() - startTimeRef.current) / 1000);
-        mutate({ record: elapsed * 1000 });
-      }
-      setIsRunning(false);
-      startTimeRef.current = null;
-      setTime(0);
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
-      await router.replace('/training/static-training/done');
+    if (!isRunning || !startTimeRef.current) return;
+
+    const elapsed = Math.floor((Date.now() - startTimeRef.current) / 1000);
+    await mutate({ record: elapsed * 1000 });
+
+    setIsRunning(false);
+    startTimeRef.current = null;
+    setStaticRecordTime(0);
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
     }
-  }, [isRunning, mutate, router]);
+  }, [isRunning, mutate]);
 
   useEffect(() => {
     return () => {
@@ -72,7 +79,7 @@ export const StaticTimer = () => {
         <TimerCircle color={isRunning ? Color.Etc : undefined} />
         <S.TimerBox>
           <S.TimerDesc>새로운 기록 시작</S.TimerDesc>
-          <S.Timer>{formatTime(time)}</S.Timer>
+          <S.Timer>{formatTime(staticRecordTime)}</S.Timer>
         </S.TimerBox>
       </S.CircleWrapper>
       <S.ButtonWrapper>
