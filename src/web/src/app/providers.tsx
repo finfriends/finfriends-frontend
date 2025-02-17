@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
 import { GuestRoute } from '@/constants/routes';
 import { UserInfoProvider } from '@/contexts/UserInfoContext';
+import { GlobalLoadingOverlay } from '@/components/common/Loading';
 
 export const queryClient = new QueryClient();
 const AuthGuard = dynamic(() => import('@/components/common/AuthGuard'), {
@@ -19,6 +20,7 @@ export default function Providers({ children }: { children: ReactNode }) {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <GlobalLoadingOverlay />
       <UserInfoProvider>
         {isProtectedRoute ? <AuthGuard>{children}</AuthGuard> : children}
       </UserInfoProvider>
