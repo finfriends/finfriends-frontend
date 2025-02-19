@@ -4,7 +4,7 @@ import { ButtonTheme } from '@/constants/button';
 import { Color } from '@/styles/color';
 import { Typography } from '@/styles/fonts';
 
-const Button = ({
+export const Button = ({
   theme,
   label,
   isDisabled,
@@ -24,8 +24,6 @@ const Button = ({
     </S.StyledButton>
   );
 };
-
-export default Button;
 
 namespace S {
   export const StyledButton = styled.button`

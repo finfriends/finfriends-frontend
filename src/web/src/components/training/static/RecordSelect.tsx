@@ -9,7 +9,7 @@ import { BottomArrowIcon } from '@/icon/BottomArrowIcon';
 import 'styles/tailwind.css';
 import { TimeSelectContent } from '@/components/training/static/TimeSelectContent';
 import { useCreateStaticRecordMutation } from '@/queries/useTrainingQueries';
-import Button from '@/components/common/Button';
+import { Button } from '@/components/common/Button';
 import { ButtonTheme } from '@/constants/button';
 import {
   Dialog,

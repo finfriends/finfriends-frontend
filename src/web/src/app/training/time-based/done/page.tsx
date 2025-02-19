@@ -5,7 +5,7 @@ import { Color } from '@/styles/color';
 import { Typography } from '@/styles/fonts';
 import { useRouter } from 'next/navigation';
 import { CloseIcon } from '@/icon/CloseIcon';
-import Button from '@/components/common/Button';
+import { Button } from '@/components/common/Button';
 import { ButtonTheme } from '@/constants/button';
 import Lottie from 'react-lottie-player';
 import complete from '@/assets/images/lottie/complete.json';
@@ -40,7 +40,7 @@ export default function TopRecordPage() {
             내일도 참여해봐요
           </S.TopRecordDesc>
         </S.ContentWrapper>
-        <Link href="/training/breath-training/done">
+        <Link href="/app/training/breath-based/done">
           <Button
             theme={ButtonTheme.Primary}
             label="호흡 기반 테이블 훈련 하러 가기"

@@ -5,7 +5,7 @@ import { Color } from '@/styles/color';
 import { Typography } from '@/styles/fonts';
 import { useRouter } from 'next/navigation';
 import { CloseIcon } from '@/icon/CloseIcon';
-import Button from '@/components/common/Button';
+import { Button } from '@/components/common/Button';
 import { ButtonTheme } from '@/constants/button';
 import Lottie from 'react-lottie-player';
 import complete from '@/assets/images/lottie/complete.json';

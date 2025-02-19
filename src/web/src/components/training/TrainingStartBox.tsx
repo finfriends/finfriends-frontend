@@ -4,7 +4,7 @@ import { TimeBasedIcon } from '@/icon/TimeBasedIcon';
 import { BreathBasedIcon } from '@/icon/BreathBasedIcon';
 import styled from '@emotion/styled';
 import { Color } from '@/styles/color';
-import Button from '@/components/common/Button';
+import { Button } from '@/components/common/Button';
 import { ButtonTheme } from '@/constants/button';
 import { Typography } from '@/styles/fonts';
 import Link from 'next/link';
@@ -18,13 +18,13 @@ const trainingDetailsMap = {
     icon: <TimeBasedIcon />,
     title: '시간 기반 테이블',
     description: '15초씩 준비 호흡 시간을 줄여가며 훈련해요',
-    startLink: '/start-table/time',
+    startLink: '/training/time-based/preview',
   },
   BreathBased: {
     icon: <BreathBasedIcon />,
     title: '호흡 기반 테이블',
     description: '준비 호흡 횟수를 줄여가며 훈련해요',
-    startLink: '/start-table/breath',
+    startLink: '/training/breath-based/preview',
   },
 };
 
