@@ -9,6 +9,7 @@ import { TimerStartIcon } from '@/icon/TimerStartIcon';
 import { TimerStopIcon } from '@/icon/TimerStopIcon';
 import { DisabledTimerStartIcon } from '@/icon/DisabledTimerStartIcon';
 import { useCreateStaticRecordMutation } from '@/queries/useTrainingQueries';
+import { formatSecondsToMinutesAndSeconds } from '@/utils/numberFormatter';
 
 export const StaticTimer = () => {
   const [isRunning, setIsRunning] = useState(false);
@@ -26,14 +27,6 @@ export const StaticTimer = () => {
       );
     },
   });
-
-  const formatTime = useCallback((seconds: number) => {
-    const mins = Math.floor(seconds / 60)
-      .toString()
-      .padStart(2, '0');
-    const secs = (seconds % 60).toString().padStart(2, '0');
-    return `${mins}:${secs}`;
-  }, []);
 
   const updateTimer = useCallback(() => {
     if (startTimeRef.current) {
@@ -79,7 +72,9 @@ export const StaticTimer = () => {
         <TimerCircle color={isRunning ? Color.Etc : undefined} />
         <S.TimerBox>
           <S.TimerDesc>새로운 기록 시작</S.TimerDesc>
-          <S.Timer>{formatTime(staticRecordTime)}</S.Timer>
+          <S.Timer>
+            {formatSecondsToMinutesAndSeconds(staticRecordTime * 1000, 'mm:ss')}
+          </S.Timer>
         </S.TimerBox>
       </S.CircleWrapper>
       <S.ButtonWrapper>
