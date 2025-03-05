@@ -12,7 +12,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import Button from '@/components/common/Button';
+import { Button } from '@/components/common/Button';
 import { ButtonTheme } from '@/constants/button';
 
 interface SwipeableRowProps {

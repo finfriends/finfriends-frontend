@@ -1,7 +1,7 @@
 // 분'초"로 형식 변경
 export const formatSecondsToMinutesAndSeconds = (
   ms: number,
-  outputType: 'text' | 'symbol' = 'symbol'
+  outputType: 'text' | 'symbol' | 'mm:ss' = 'symbol'
 ): string => {
   const totalSeconds = Math.floor(ms / 1000);
   const minutes = Math.floor(totalSeconds / 60);
@@ -12,7 +12,9 @@ export const formatSecondsToMinutesAndSeconds = (
       return `${minutes}분 ${seconds}초`;
     case 'symbol':
       return `${minutes}'${seconds}"`;
+    case 'mm:ss':
+      return `${minutes}:${seconds.toString().padStart(2, '0')}`;
     default:
-      throw new Error('outputType은 "text" 또는 "symbol"이어야 합니다.');
+      throw new Error('outputType Error');
   }
 };

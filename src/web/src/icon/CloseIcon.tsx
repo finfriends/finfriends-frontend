@@ -1,6 +1,7 @@
 import { IconProps } from '@/types/icon';
+import { Color } from '@/styles/color';
 
-export const CloseIcon = ({ size = 26, color }: IconProps) => (
+export const CloseIcon = ({ size = 26, color = Color.White }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}
