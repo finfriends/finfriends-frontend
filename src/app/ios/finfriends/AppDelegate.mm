@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-
+#import <RNKakaoLogins.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTLinkingManager.h>
 
@@ -32,6 +32,11 @@
 
 // Linking API
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+  
+  if([RNKakaoLogins isKakaoTalkLoginUrl:url]) {
+     return [RNKakaoLogins handleOpenUrl: url];
+  }
+
   return [super application:application openURL:url options:options] || [RCTLinkingManager application:application openURL:url options:options];
 }
 
